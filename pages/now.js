@@ -23,7 +23,7 @@ import {
 
 export const getServerSideProps = async () => {
   const response = await fetch(
-    'https://api.openweathermap.org/data/2.5/weather?lat=23.014770&lon=72.526330&appid=1b3c10c18e894eaf1fd63eedde53fa54&units=metric'
+    'https://api.openweathermap.org/data/2.5/weather?lat=21.0245&lon=105.8412&appid=1b3c10c18e894eaf1fd63eedde53fa54&units=metric'
   )
   const data = await response.json()
 
@@ -62,12 +62,12 @@ export default function Now(currentlyReading) {
     _50n: <BsCloudFogFill className="mb-0.5 inline h-3 w-3 hover:animate-spin" />,
   }
 
-  var year = new Date().getFullYear()
-  var month = new Date().getMonth()
-  var date = new Date().getDate()
-  var hour = new Date().getHours()
-  var minute = new Date().getMinutes()
-  var second = new Date().getSeconds()
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth()
+  let date = new Date().getDate()
+  let hour = new Date().getHours()
+  let minute = new Date().getMinutes()
+  let second = new Date().getSeconds()
   const now = () => dayjs().tz()
   const format = 'hhA'
   const [TodayDate, setDate] = useState(now())
@@ -77,19 +77,19 @@ export default function Now(currentlyReading) {
     return () => clearInterval(timer)
   }, [])
 
-  var ParthBirthDate = '2000-04-16'
-  var birthDate = new Date(ParthBirthDate)
+  let ParthBirthDate = '1996-04-30'
+  let birthDate = new Date(ParthBirthDate)
 
-  var ParthAge = year - birthDate.getFullYear()
+  let ParthAge = year - birthDate.getFullYear()
 
-  var ParthMonth = 0
+  let ParthMonth = 0
   if (month >= birthDate.getMonth()) ParthMonth = month - birthDate.getMonth()
   else {
     ParthAge--
     ParthMonth = 12 + month - birthDate.getMonth()
   }
 
-  var ParthDay = 0
+  let ParthDay = 0
   if (date >= birthDate.getDate()) ParthDay = date - birthDate.getDate()
   else {
     ParthMonth--
@@ -100,17 +100,17 @@ export default function Now(currentlyReading) {
     }
   }
 
-  var age = {}
+  let age = {}
   age = {
     years: ParthAge,
     months: ParthMonth,
     days: ParthDay,
   }
 
-  var ageString = ''
+  let ageString = ''
   if (age.years > 0 && age.months > 0 && age.days > 0)
     ageString = age.years + ' years, ' + age.months + ' months, and ' + age.days + ' days old'
-  else if (age.years == 0 && age.months == 0 && age.days > 0)
+  else if (age.years === 0 && age.months == 0 && age.days > 0)
     ageString = 'Only ' + age.days + ' days old'
   else if (age.years > 0 && age.months == 0 && age.days == 0)
     ageString = age.years + ' years old. Happy Birthday!!'
@@ -141,7 +141,7 @@ export default function Now(currentlyReading) {
         <div>
           <div className="flex justify-between gap-5">
             <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
-              <span className="ml-2 font-semibold">Location:</span> <span>Ahmedabad, India</span>
+              <span className="ml-2 font-semibold">Location:</span> <span>Ha Noi, Viet Nam</span>
               <br />
               <span className="ml-2 font-semibold">Weather:</span>{' '}
               <span>
