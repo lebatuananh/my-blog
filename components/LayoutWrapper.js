@@ -9,11 +9,18 @@ import ThemeSwitch from './ThemeSwitch'
 import Typewriter from 'typewriter-effect'
 import { useRouter } from 'next/router'
 import DropMenu from './DropMenu.js'
+import useTranslation from 'next-translate/useTranslation'
 // import Logo from '@/data/logo.svg'
 // import MobileNav from './MobileNav'
 
 const LayoutWrapper = ({ children }) => {
   const router = useRouter()
+  const { t } = useTranslation()
+  const { locale, locales, defaultLocale } = router
+
+  const changeLanguage = (locale) => {
+    router.push(router.asPath, router.asPath, { locale })
+  }
 
   return (
     <SectionContainer>
@@ -55,6 +62,24 @@ const LayoutWrapper = ({ children }) => {
                 >
                   {link.title}
                 </Link>
+              ))}
+            </div>
+            <div className="flex">
+              {locales.map((e, index) => (
+                <span key={e}>
+                  <button
+                    aria-label={`Change to ${e}`}
+                    type="button"
+                    value={locale}
+                    onClick={() => changeLanguage(e)}
+                    className="inline-block cursor-pointer p-2 font-medium text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 sm:py-4"
+                  >
+                    {e}
+                  </button>
+                  {index === 0 && (
+                    <span className="py-1 text-gray-300 dark:text-gray-700 sm:py-4">/</span>
+                  )}
+                </span>
               ))}
             </div>
             <CommandPalette navigation={navigation} />
