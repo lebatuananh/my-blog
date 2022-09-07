@@ -26,8 +26,10 @@ import {
   EnterIcon,
 } from '@radix-ui/react-icons'
 import useSound from 'use-sound'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function DropMenu() {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const { data: session } = useSession()
   const toggleIcon = () => {
@@ -89,7 +91,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <HomeIcon className="mr-4 mt-0.5" /> Home
+                      <HomeIcon className="mr-4 mt-0.5" /> {t('common:home')}
                     </div>
                   </a>
                 </Link>
@@ -107,7 +109,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <Pencil1Icon className="mr-4 mt-0.5" /> Blog
+                      <Pencil1Icon className="mr-4 mt-0.5" /> {t('common:blog')}
                     </div>
                   </a>
                 </Link>
@@ -125,7 +127,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <CodeIcon className="mr-4 mt-0.5" /> Snippets
+                      <CodeIcon className="mr-4 mt-0.5" /> {t('common:snippets')}
                     </div>
                   </a>
                 </Link>
@@ -143,7 +145,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <ArchiveIcon className="mr-4 mt-0.5" /> Projects
+                      <ArchiveIcon className="mr-4 mt-0.5" /> {t('common:projects')}
                     </div>
                   </a>
                 </Link>
@@ -161,7 +163,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <PersonIcon className="mr-4 mt-0.5" /> About
+                      <PersonIcon className="mr-4 mt-0.5" /> {t('common:about')}
                     </div>
                   </a>
                 </Link>
@@ -195,14 +197,14 @@ export default function DropMenu() {
                               )}
                             </div>
                             <div className="" onClick={() => signOut()}>
-                              Sign Out
+                              {t('common:signOut')}
                             </div>
                           </>
                         ) : (
                           <>
                             <EnterIcon />
                             <div className="ml-4" onClick={() => signIn()}>
-                              Sign In
+                              {t('common:signIn')}
                             </div>
                           </>
                         )}
@@ -226,7 +228,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <Link2Icon className="mr-4 mt-0.5" /> Contact
+                      <Link2Icon className="mr-4 mt-0.5" /> {t('common:contact')}
                     </div>
                   </a>
                 </Link>
@@ -244,7 +246,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <FrameIcon className="mr-4 mt-0.5" /> Tags
+                      <FrameIcon className="mr-4 mt-0.5" /> {t('common:tags')}
                     </div>
                   </a>
                 </Link>
@@ -262,7 +264,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <ChatBubbleIcon className="mr-4 mt-0.5" /> Guestbook
+                      <ChatBubbleIcon className="mr-4 mt-0.5" /> {t('common:guestbook')}
                     </div>
                   </a>
                 </Link>
@@ -280,7 +282,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <LaptopIcon className="mr-4 mt-0.5" /> Uses
+                      <LaptopIcon className="mr-4 mt-0.5" /> {t('common:uses')}
                     </div>
                   </a>
                 </Link>

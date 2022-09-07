@@ -50,7 +50,7 @@ const defaultTheme = {
   },
 }
 
-export default function App({ Component, pageProps: { session, ...pageProps } }) {
+export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
   return (
     <SessionProvider session={session}>
       <Provider apiKey="pt_0d530da513f7c996ca1701b7ef653b" theme={defaultTheme}>
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
           {isDevelopment && isSocket && <ClientReload />}
           <Analytics />
           <LayoutWrapper>
-            <Component {...pageProps} />
+            <Component {...pageProps} key={router.route} />
           </LayoutWrapper>
         </ThemeProvider>
       </Provider>

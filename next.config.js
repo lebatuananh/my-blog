@@ -1,7 +1,8 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-
+const withPlugins = require('next-compose-plugins')
+const nextTranslate = require('next-translate')
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -52,7 +53,7 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withBundleAnalyzer({
+const nextConfig = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
     domains: [
@@ -108,3 +109,5 @@ module.exports = withBundleAnalyzer({
     return config
   },
 })
+
+module.exports = withPlugins([[nextTranslate], [withBundleAnalyzer]], nextConfig)

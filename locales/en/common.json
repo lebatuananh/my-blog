@@ -1,0 +1,14 @@
+{
+  "hello": "Hello, I am",
+  "home": "Home",
+  "blog": "Blog",
+  "snippets": "Snippets",
+  "projects": "Projects",
+  "about": "About",
+  "guestbook": "Guestbook",
+  "signOut": "Sign Out",
+  "signIn": "Sign In",
+  "contact": "Contact",
+  "tags": "Tags",
+  "uses": "Uses"
+}

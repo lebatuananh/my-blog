@@ -7,16 +7,19 @@ import formatDate from '@/lib/utils/formatDate'
 import { RoughNotation } from 'react-rough-notation'
 import NewsletterForm from '@/components/NewsletterForm'
 import ViewCounter from '@/components/ViewCounter'
+import useTranslation from 'next-translate/useTranslation'
 
 const MAX_DISPLAY = 3
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale, defaultLocale, locales }) {
+  const otherLocale = locale !== defaultLocale ? locale : ''
   const posts = await getAllFilesFrontMatter('blog')
 
-  return { props: { posts } }
+  return { props: { posts, locale, availableLocales: locales } }
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, locale, availableLocales }) {
+  const { t } = useTranslation()
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -24,8 +27,8 @@ export default function Home({ posts }) {
         <div className="mb-12 flex flex-col items-center gap-x-12 xl:flex-row">
           <div className="pt-6">
             <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              Hi, I am{' '}
-              <span className="text-primary-color-500 dark:text-primary-color-dark-500">Parth</span>
+              {t('common:hello')}{' '}
+              <span className="text-primary-color-500 dark:text-primary-color-dark-500">MRA</span>
             </h1>
             <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
               {`Welcome to ${siteMetadata.description}. I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing `}
