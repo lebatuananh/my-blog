@@ -1,9 +1,9 @@
-import { Fragment, useState } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { motion } from 'framer-motion'
-import classNames from 'classnames'
-import { useSession, signIn, signOut } from 'next-auth/react'
-import Link from './Link'
+import { Fragment, useState } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { motion } from "framer-motion";
+import classNames from "classnames";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "./Link";
 import {
   CodeIcon,
   HomeIcon,
@@ -24,19 +24,19 @@ import {
   RocketIcon,
   ChatBubbleIcon,
   EnterIcon,
-} from '@radix-ui/react-icons'
-import useSound from 'use-sound'
-import useTranslation from 'next-translate/useTranslation'
+} from "@radix-ui/react-icons";
+import useSound from "use-sound";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DropMenu() {
-  const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
-  const { data: session } = useSession()
+  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
   const toggleIcon = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
-  const [ThemeSound] = useSound('/static/sounds/page-change.mp3')
+  const [ThemeSound] = useSound("/static/sounds/page-change.mp3");
 
   return (
     <Menu as="div" className="relative z-10 inline-block text-left ">
@@ -47,7 +47,7 @@ export default function DropMenu() {
             whileTap={{
               scale: 0.5,
             }}
-            transition={{ duration: 0.1, ease: 'easeIn' }}
+            transition={{ duration: 0.1, ease: "easeIn" }}
             aria-label="Toggle List Menu"
             type="button"
           >
@@ -69,12 +69,12 @@ export default function DropMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
         afterEnter={() => {
-          toggleIcon()
-          ThemeSound()
+          toggleIcon();
+          ThemeSound();
         }}
         afterLeave={() => {
-          toggleIcon()
-          ThemeSound()
+          toggleIcon();
+          ThemeSound();
         }}
       >
         <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-zinc-300 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-zinc-700 dark:bg-zinc-800 ">
@@ -85,13 +85,13 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <HomeIcon className="mr-4 mt-0.5" /> {t('common:home')}
+                      <HomeIcon className="mr-4 mt-0.5" /> {t("common:home")}
                     </div>
                   </a>
                 </Link>
@@ -103,13 +103,13 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <Pencil1Icon className="mr-4 mt-0.5" /> {t('common:blog')}
+                      <Pencil1Icon className="mr-4 mt-0.5" /> {t("common:blog")}
                     </div>
                   </a>
                 </Link>
@@ -121,13 +121,14 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <CodeIcon className="mr-4 mt-0.5" /> {t('common:snippets')}
+                      <CodeIcon className="mr-4 mt-0.5" />{" "}
+                      {t("common:snippets")}
                     </div>
                   </a>
                 </Link>
@@ -139,13 +140,14 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <ArchiveIcon className="mr-4 mt-0.5" /> {t('common:projects')}
+                      <ArchiveIcon className="mr-4 mt-0.5" />{" "}
+                      {t("common:projects")}
                     </div>
                   </a>
                 </Link>
@@ -157,13 +159,13 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <PersonIcon className="mr-4 mt-0.5" /> {t('common:about')}
+                      <PersonIcon className="mr-4 mt-0.5" /> {t("common:about")}
                     </div>
                   </a>
                 </Link>
@@ -176,9 +178,9 @@ export default function DropMenu() {
                     <a
                       className={classNames(
                         active
-                          ? 'cursor-pointer bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                          : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                        'block cursor-pointer px-4 py-2 text-sm'
+                          ? "cursor-pointer bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                          : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                        "block cursor-pointer px-4 py-2 text-sm"
                       )}
                     >
                       <div className="flex flex-row">
@@ -193,18 +195,18 @@ export default function DropMenu() {
                                   alt="User Profile Icon"
                                 />
                               ) : (
-                                ''
+                                ""
                               )}
                             </div>
                             <div className="" onClick={() => signOut()}>
-                              {t('common:signOut')}
+                              {t("common:signOut")}
                             </div>
                           </>
                         ) : (
                           <>
                             <EnterIcon />
                             <div className="ml-4" onClick={() => signIn()}>
-                              {t('common:signIn')}
+                              {t("common:signIn")}
                             </div>
                           </>
                         )}
@@ -222,13 +224,14 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <Link2Icon className="mr-4 mt-0.5" /> {t('common:contact')}
+                      <Link2Icon className="mr-4 mt-0.5" />{" "}
+                      {t("common:contact")}
                     </div>
                   </a>
                 </Link>
@@ -240,13 +243,13 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <FrameIcon className="mr-4 mt-0.5" /> {t('common:tags')}
+                      <FrameIcon className="mr-4 mt-0.5" /> {t("common:tags")}
                     </div>
                   </a>
                 </Link>
@@ -258,13 +261,14 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <ChatBubbleIcon className="mr-4 mt-0.5" /> {t('common:guestbook')}
+                      <ChatBubbleIcon className="mr-4 mt-0.5" />{" "}
+                      {t("common:guestbook")}
                     </div>
                   </a>
                 </Link>
@@ -276,13 +280,13 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
-                      <LaptopIcon className="mr-4 mt-0.5" /> {t('common:uses')}
+                      <LaptopIcon className="mr-4 mt-0.5" /> {t("common:uses")}
                     </div>
                   </a>
                 </Link>
@@ -294,9 +298,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -312,9 +316,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -330,9 +334,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -348,9 +352,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -366,9 +370,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -384,9 +388,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -402,9 +406,9 @@ export default function DropMenu() {
                   <a
                     className={classNames(
                       active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
+                        ? "bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300"
+                        : "bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700",
+                      "block px-4 py-2 text-sm"
                     )}
                   >
                     <div className="flex flex-row">
@@ -418,5 +422,5 @@ export default function DropMenu() {
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }

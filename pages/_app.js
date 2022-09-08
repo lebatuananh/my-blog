@@ -1,56 +1,60 @@
-import '@/css/tailwind.css'
-import '@/css/prism.css'
-import '@/css/extra.css'
-import 'katex/dist/katex.css'
-import '@fontsource/inter/variable-full.css'
-import { ThemeProvider } from 'next-themes'
-import Head from 'next/head'
-import Router from 'next/router'
-import NProgress from 'nprogress'
-import siteMetadata from '@/data/siteMetadata'
-import Analytics from '@/components/analytics'
-import LayoutWrapper from '@/components/LayoutWrapper'
-import { ClientReload } from '@/components/ClientReload'
-import ProgressBar from 'react-scroll-progress-bar'
-import ScrollTop from '@/components/ScrollTop'
-import { SessionProvider } from 'next-auth/react'
-import { Provider } from '@lyket/react'
+import "@/css/tailwind.css";
+import "@/css/prism.css";
+import "@/css/extra.css";
+import "katex/dist/katex.css";
+import "@fontsource/inter/variable-full.css";
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
+import Router from "next/router";
+import NProgress from "nprogress";
+import siteMetadata from "@/data/siteMetadata";
+import Analytics from "@/components/analytics";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import { ClientReload } from "@/components/ClientReload";
+import ProgressBar from "react-scroll-progress-bar";
+import ScrollTop from "@/components/ScrollTop";
+import { SessionProvider } from "next-auth/react";
+import { Provider } from "@lyket/react";
 
-const isDevelopment = process.env.NODE_ENV === 'development'
-const isSocket = process.env.SOCKET
+const isDevelopment = process.env.NODE_ENV === "development";
+const isSocket = process.env.SOCKET;
 
-NProgress.configure({ showSpinner: false })
+NProgress.configure({ showSpinner: false });
 
 Router.onRouteChangeStart = () => {
   // console.log('onRouteChangeStart triggered');
-  NProgress.start()
-}
+  NProgress.start();
+};
 
 Router.onRouteChangeComplete = () => {
   // console.log('onRouteChangeComplete triggered');
-  NProgress.done()
-}
+  NProgress.done();
+};
 
 Router.onRouteChangeError = () => {
   // console.log('onRouteChangeError triggered');
-  NProgress.done()
-}
+  NProgress.done();
+};
 
 const defaultTheme = {
   colors: {
-    primary: '#71717a',
-    secondary: '#ff00c3',
-    text: '#fff',
-    highlight: '#ff00c3',
-    icon: '#fff',
-    background: 'transparent',
+    primary: "#71717a",
+    secondary: "#ff00c3",
+    text: "#fff",
+    highlight: "#ff00c3",
+    icon: "#fff",
+    background: "transparent",
   },
   fonts: {
-    body: 'inherit',
+    body: "inherit",
   },
-}
+};
 
-export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+  router,
+}) {
   return (
     <SessionProvider session={session}>
       <Provider apiKey="pt_0d530da513f7c996ca1701b7ef653b" theme={defaultTheme}>
@@ -58,7 +62,10 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
           <ProgressBar bgcolor="#DE1D8D" />
           <ScrollTop />
           <Head>
-            <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <meta
+              content="width=device-width, initial-scale=1"
+              name="viewport"
+            />
           </Head>
           {isDevelopment && isSocket && <ClientReload />}
           <Analytics />
@@ -68,5 +75,5 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
         </ThemeProvider>
       </Provider>
     </SessionProvider>
-  )
+  );
 }
