@@ -1,36 +1,38 @@
-import { Dialog, Combobox, Transition } from '@headlessui/react'
-import { useState, useEffect, Fragment } from 'react'
-import { HiSearch } from 'react-icons/hi'
-import { useRouter } from 'next/router'
-import { FiCommand } from 'react-icons/fi'
-import { motion } from 'framer-motion'
-import useSound from 'use-sound'
+import { Dialog, Combobox, Transition } from "@headlessui/react";
+import { useState, useEffect, Fragment } from "react";
+import { HiSearch } from "react-icons/hi";
+import { useRouter } from "next/router";
+import { FiCommand } from "react-icons/fi";
+import { motion } from "framer-motion";
+import useSound from "use-sound";
 
 export default function CommandPalette({ navigation }) {
-  const router = useRouter()
-  const [isOpen, setIsOpen] = useState(false)
-  const [query, setQuery] = useState('')
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
-        setIsOpen(!isOpen)
+      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+        setIsOpen(!isOpen);
       }
-    }
-    window.addEventListener('keydown', handleKeyDown)
+    };
+    window.addEventListener("keydown", handleKeyDown);
 
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen])
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   const toggleIcon = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
-  const [ThemeSound] = useSound('/static/sounds/open.mp3')
+  const [ThemeSound] = useSound("/static/sounds/open.mp3");
 
   const filterednavigation = query
-    ? navigation.pages.filter((page) => page.name.toLowerCase().includes(query.toLocaleLowerCase()))
-    : navigation.pages
+    ? navigation.pages.filter((page) =>
+        page.name.toLowerCase().includes(query.toLocaleLowerCase())
+      )
+    : navigation.pages;
   return (
     <>
       <motion.button
@@ -40,16 +42,23 @@ export default function CommandPalette({ navigation }) {
         animate={{
           rotate: isOpen ? 360 : 0,
         }}
-        transition={{ duration: 0.1, ease: 'easeIn' }}
+        transition={{ duration: 0.1, ease: "easeIn" }}
         onClick={() => {
-          toggleIcon()
-          ThemeSound()
+          toggleIcon();
+          ThemeSound();
         }}
       >
         <FiCommand />
       </motion.button>
-      <Transition.Root show={isOpen} as={Fragment} afterLeave={() => setQuery('')}>
-        <Dialog onClose={setIsOpen} className="fixed inset-0 z-20 overflow-y-auto p-12 pt-[20vh]">
+      <Transition.Root
+        show={isOpen}
+        as={Fragment}
+        afterLeave={() => setQuery("")}
+      >
+        <Dialog
+          onClose={setIsOpen}
+          className="fixed inset-0 z-20 overflow-y-auto p-12 pt-[20vh]"
+        >
           <Transition.Child
             enter="duration-300 ease-out"
             enterFrom="opacity-0"
@@ -71,8 +80,8 @@ export default function CommandPalette({ navigation }) {
             <Combobox
               value=""
               onChange={(page) => {
-                setIsOpen(false)
-                router.push(`${page.href}`)
+                setIsOpen(false);
+                router.push(`${page.href}`);
               }}
               as="div"
               className="relative mx-auto max-h-[50vh] max-w-xl divide-y divide-gray-300 overflow-hidden overflow-y-scroll rounded-xl bg-zinc-200 shadow-2xl ring-1 ring-black/5 dark:divide-zinc-700 dark:bg-zinc-800"
@@ -81,7 +90,7 @@ export default function CommandPalette({ navigation }) {
                 <HiSearch className="h-6 w-6" />
                 <Combobox.Input
                   onChange={(event) => {
-                    setQuery(event.target.value)
+                    setQuery(event.target.value);
                   }}
                   className="h-12 border-0 bg-transparent  text-sm text-gray-800 placeholder-gray-400 focus:ring-0 dark:text-neutral-400"
                   placeholder="Search..."
@@ -89,20 +98,25 @@ export default function CommandPalette({ navigation }) {
                 />
               </div>
               {filterednavigation.length > 0 && (
-                <Combobox.Options static className="max-h-30 overflow-y-auto py-4 text-sm">
+                <Combobox.Options
+                  static
+                  className="max-h-30 overflow-y-auto py-4 text-sm"
+                >
                   {filterednavigation.map((page) => (
                     <Combobox.Option key={page.name} value={page}>
                       {({ active }) => (
                         <div
                           className={`cursor-pointer space-x-1 px-14  py-2  ${
-                            active ? 'bg-zinc-300 dark:bg-zinc-600' : 'bg-zinc-200 dark:bg-zinc-800'
+                            active
+                              ? "bg-zinc-300 dark:bg-zinc-600"
+                              : "bg-zinc-200 dark:bg-zinc-800"
                           }`}
                         >
                           <span
                             className={`font-medium  ${
                               active
-                                ? 'text-neutral-900 dark:text-neutral-200'
-                                : 'text-neutral-900 dark:text-neutral-200'
+                                ? "text-neutral-900 dark:text-neutral-200"
+                                : "text-neutral-900 dark:text-neutral-200"
                             }`}
                           >
                             {page.name}
@@ -110,8 +124,8 @@ export default function CommandPalette({ navigation }) {
                           <span
                             className={`  ${
                               active
-                                ? 'text-neutral-700 dark:text-neutral-600'
-                                : 'text-neutral-500 dark:text-neutral-800'
+                                ? "text-neutral-700 dark:text-neutral-600"
+                                : "text-neutral-500 dark:text-neutral-800"
                             }`}
                           >
                             {page.repo}
@@ -123,12 +137,14 @@ export default function CommandPalette({ navigation }) {
                 </Combobox.Options>
               )}
               {query && filterednavigation.length === 0 && (
-                <p className="py-4 px-12 text-sm text-gray-500 ">no results found</p>
+                <p className="py-4 px-12 text-sm text-gray-500 ">
+                  no results found
+                </p>
               )}
             </Combobox>
           </Transition.Child>
         </Dialog>
       </Transition.Root>
     </>
-  )
+  );
 }
