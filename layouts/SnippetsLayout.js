@@ -1,20 +1,28 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { useState } from 'react'
-import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
+import Link from "@/components/Link";
+import Tag from "@/components/Tag";
+import siteMetadata from "@/data/siteMetadata";
+import { useState } from "react";
+import Pagination from "@/components/Pagination";
+import formatDate from "@/lib/utils/formatDate";
 
-export default function SnippetsLayout({ posts, title, initialDisplayPosts = [], pagination }) {
-  const [searchValue, setSearchValue] = useState('')
+export default function SnippetsLayout({
+  posts,
+  title,
+  initialDisplayPosts = [],
+  pagination,
+}) {
+  const [searchValue, setSearchValue] = useState("");
   const filteredBlogPosts = posts.filter((frontMatter) => {
-    const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
+    const searchContent =
+      frontMatter.title + frontMatter.summary + frontMatter.tags.join(" ");
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase());
+  });
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    initialDisplayPosts.length > 0 && !searchValue
+      ? initialDisplayPosts
+      : filteredBlogPosts;
 
   return (
     <>
@@ -48,9 +56,9 @@ export default function SnippetsLayout({ posts, title, initialDisplayPosts = [],
           </div>
         </div>
         <div className="grid grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredBlogPosts.length && "No posts found."}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags } = frontMatter;
             return (
               <Link
                 key={slug}
@@ -85,13 +93,16 @@ export default function SnippetsLayout({ posts, title, initialDisplayPosts = [],
                   </article>
                 </div>
               </Link>
-            )
+            );
           })}
         </div>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        <Pagination
+          currentPage={pagination.currentPage}
+          totalPages={pagination.totalPages}
+        />
       )}
     </>
-  )
+  );
 }

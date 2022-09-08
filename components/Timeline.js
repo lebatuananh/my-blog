@@ -1,12 +1,12 @@
-import { FaGraduationCap, FaBlackTie } from 'react-icons/fa'
-import { AiOutlineCode } from 'react-icons/ai'
-import { SiLeetcode } from 'react-icons/si'
-import { Disclosure, Transition } from '@headlessui/react'
-import { HiChevronDown, HiOutlineDatabase } from 'react-icons/hi'
-import { FaBaby } from 'react-icons/fa'
-import { BsBuilding } from 'react-icons/bs'
-import { RiDoorClosedLine } from 'react-icons/ri'
-import { TbDeviceDesktopAnalytics } from 'react-icons/tb'
+import { FaGraduationCap, FaBlackTie } from "react-icons/fa";
+import { AiOutlineCode } from "react-icons/ai";
+import { SiLeetcode } from "react-icons/si";
+import { Disclosure, Transition } from "@headlessui/react";
+import { HiChevronDown, HiOutlineDatabase } from "react-icons/hi";
+import { FaBaby } from "react-icons/fa";
+import { BsBuilding } from "react-icons/bs";
+import { RiDoorClosedLine } from "react-icons/ri";
+import { TbDeviceDesktopAnalytics } from "react-icons/tb";
 
 export default function Timeline() {
   return (
@@ -26,7 +26,8 @@ export default function Timeline() {
             June 13th, 2022
           </time>
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            Feel confident that I can work as a junior Data Engineer. Wish me Luck
+            Feel confident that I can work as a junior Data Engineer. Wish me
+            Luck
           </p>
         </li>
         <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white px-4 py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
@@ -47,7 +48,9 @@ export default function Timeline() {
           <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-300 ring-8 ring-white dark:bg-yellow-700 dark:ring-gray-900">
             <SiLeetcode />
           </span>
-          <h3 className="text-base font-semibold text-gray-900 dark:text-white">Joined LeetCode</h3>
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+            Joined LeetCode
+          </h3>
           <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
             Feb 2nd, 2022
           </time>
@@ -87,7 +90,9 @@ export default function Timeline() {
           <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-red-200 ring-8 ring-white dark:bg-red-900 dark:ring-gray-900">
             <BsBuilding />
           </span>
-          <h3 className="text-base font-semibold text-gray-900 dark:text-white">Started College</h3>
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+            Started College
+          </h3>
           <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
             August 20th, 2018
           </time>
@@ -101,7 +106,9 @@ export default function Timeline() {
               <Disclosure.Button>
                 <div className="text-small ml-1.5 flex">
                   <HiChevronDown
-                    className={`h-6 w-6 text-gray-600  ${open ? 'rotate-180 transform ' : ''}`}
+                    className={`h-6 w-6 text-gray-600  ${
+                      open ? "rotate-180 transform " : ""
+                    }`}
                   />
                 </div>
               </Disclosure.Button>
@@ -115,7 +122,7 @@ export default function Timeline() {
                 leaveTo="transform scale-95 opacity-0"
               >
                 <Disclosure.Panel>
-                  {' '}
+                  {" "}
                   <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
                     <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-purple-200 ring-8 ring-white dark:bg-purple-900 dark:ring-gray-900">
                       <RiDoorClosedLine />
@@ -148,7 +155,9 @@ export default function Timeline() {
                     <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-200 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
                       <FaBaby />
                     </span>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">Born</h3>
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                      Born
+                    </h3>
                     <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                       April 16th, 2000
                     </time>
@@ -163,5 +172,5 @@ export default function Timeline() {
         </Disclosure>
       </ol>
     </div>
-  )
+  );
 }

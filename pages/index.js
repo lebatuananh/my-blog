@@ -1,41 +1,46 @@
-import Link from '@/components/Link'
-import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-import formatDate from '@/lib/utils/formatDate'
-import { RoughNotation } from 'react-rough-notation'
-import NewsletterForm from '@/components/NewsletterForm'
-import ViewCounter from '@/components/ViewCounter'
-import useTranslation from 'next-translate/useTranslation'
+import Link from "@/components/Link";
+import { PageSEO } from "@/components/SEO";
+import Tag from "@/components/Tag";
+import siteMetadata from "@/data/siteMetadata";
+import { getAllFilesFrontMatter } from "@/lib/mdx";
+import formatDate from "@/lib/utils/formatDate";
+import { RoughNotation } from "react-rough-notation";
+import NewsletterForm from "@/components/NewsletterForm";
+import ViewCounter from "@/components/ViewCounter";
+import useTranslation from "next-translate/useTranslation";
 
-const MAX_DISPLAY = 3
+const MAX_DISPLAY = 3;
 
 export async function getStaticProps({ locale, defaultLocale, locales }) {
-  const otherLocale = locale !== defaultLocale ? locale : ''
-  const posts = await getAllFilesFrontMatter('blog')
+  const otherLocale = locale !== defaultLocale ? locale : "";
+  const posts = await getAllFilesFrontMatter("blog");
 
-  return { props: { posts, locale, availableLocales: locales } }
+  return { props: { posts, locale, availableLocales: locales } };
 }
 
 export default function Home({ posts, locale, availableLocales }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+      />
       <div>
         <div className="mb-12 flex flex-col items-center gap-x-12 xl:flex-row">
           <div className="pt-6">
             <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              {t('common:hello')}{' '}
-              <span className="text-primary-color-500 dark:text-primary-color-dark-500">MRA</span>
+              {t("common:hello")}{" "}
+              <span className="text-primary-color-500 dark:text-primary-color-dark-500">
+                MRA
+              </span>
             </h1>
             <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
               {`Welcome to ${siteMetadata.description}. I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing `}
               side projects and learning new technologies.
             </h2>
             <p className="pt-5 text-lg leading-7 text-slate-600 dark:text-slate-300 sm:block md:hidden lg:hidden">
-              This is my place for{' '}
+              This is my place for{" "}
               <RoughNotation
                 animate="true"
                 type="box"
@@ -50,7 +55,7 @@ export default function Home({ posts, locale, availableLocales }) {
               in between. Have a good read!
             </p>
             <p className="hidden pt-10 text-lg leading-7 text-slate-600 dark:text-slate-300 md:block">
-              This is my place for{' '}
+              This is my place for{" "}
               <RoughNotation
                 animate="true"
                 type="highlight"
@@ -62,16 +67,16 @@ export default function Home({ posts, locale, availableLocales }) {
               >
                 thoughts, reflections & everything&nbsp;
               </RoughNotation>
-              in between. Have a good read!{' '}
+              in between. Have a good read!{" "}
               <div className="mt-8 text-slate-600 dark:text-slate-400">
-                <span className="text-sm">Press</span>{' '}
+                <span className="text-sm">Press</span>{" "}
                 <span className="rounded-md bg-gray-300 p-1 text-sm text-gray-900 dark:bg-gray-400">
                   ⌘
-                </span>{' '}
+                </span>{" "}
                 <span className="text-sm">+ </span>
                 <span className="rounded-md bg-gray-300 p-1 text-sm text-gray-900 dark:bg-gray-400">
                   K
-                </span>{' '}
+                </span>{" "}
                 <span className="text-sm">to start</span>
               </div>
             </p>
@@ -126,7 +131,9 @@ export default function Home({ posts, locale, availableLocales }) {
                             d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
                           />
                         </svg>
-                        <span className="pr-6 text-gray-900 dark:text-gray-100">What I built</span>
+                        <span className="pr-6 text-gray-900 dark:text-gray-100">
+                          What I built
+                        </span>
                       </span>
                       <span className="pl-6 text-amber-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
                         Projects&nbsp;&rarr;
@@ -155,7 +162,9 @@ export default function Home({ posts, locale, availableLocales }) {
                             d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                           />
                         </svg>
-                        <span className="pr-6 text-gray-900 dark:text-gray-100">Read my story</span>
+                        <span className="pr-6 text-gray-900 dark:text-gray-100">
+                          Read my story
+                        </span>
                       </span>
                       <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
                         Website&nbsp;&rarr;
@@ -205,9 +214,9 @@ export default function Home({ posts, locale, availableLocales }) {
         </h2>
         <hr className="border-gray-200 dark:border-gray-700" />
         <ul>
-          {!posts.length && 'No posts found.'}
+          {!posts.length && "No posts found."}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags } = frontMatter;
             return (
               <Link
                 href={`/blog/${slug}`}
@@ -221,7 +230,7 @@ export default function Home({ posts, locale, availableLocales }) {
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-sm font-normal leading-6 text-gray-500 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date)}</time>
-                          {' • '}
+                          {" • "}
                           <ViewCounter className="mx-1" slug={slug} />
                           views
                         </dd>
@@ -252,7 +261,7 @@ export default function Home({ posts, locale, availableLocales }) {
                   </article>
                 </li>
               </Link>
-            )
+            );
           })}
         </ul>
       </div>
@@ -267,9 +276,11 @@ export default function Home({ posts, locale, availableLocales }) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-4">{/* <NewsletterForm /> */}</div>
+      {siteMetadata.newsletter.provider !== "" && (
+        <div className="flex items-center justify-center pt-4">
+          {/* <NewsletterForm /> */}
+        </div>
       )}
     </>
-  )
+  );
 }

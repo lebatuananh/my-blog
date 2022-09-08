@@ -1,6 +1,6 @@
-import CustomLink from '@/components/CustomLink'
-import { AiFillStar } from 'react-icons/ai'
-import { FiExternalLink } from 'react-icons/fi'
+import CustomLink from "@/components/CustomLink";
+import { AiFillStar } from "react-icons/ai";
+import { FiExternalLink } from "react-icons/fi";
 
 const NowReading = ({ title, description, href, rating, showLink = true }) =>
   showLink ? (
@@ -35,6 +35,6 @@ const NowReading = ({ title, description, href, rating, showLink = true }) =>
         </div>
       </div>
     </div>
-  )
+  );
 
-export default NowReading
+export default NowReading;

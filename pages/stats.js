@@ -1,12 +1,12 @@
 // import Link from '@/components/Link'
-import Analytics from 'components/metrics/Analytics'
-import Twitter from '@/components/metrics/Twitter'
-import GithubPersonal from '@/components/metrics/GithubPersonal'
-import GitHub from '@/components/metrics/Github'
-import siteMetadata from '@/data/siteMetadata'
-import { PageSEO } from '@/components/SEO'
-import TopTracks from '@/components/TopTracks'
-import NowPlaying from '@/components/NowPlaying'
+import Analytics from "components/metrics/Analytics";
+import Twitter from "@/components/metrics/Twitter";
+import GithubPersonal from "@/components/metrics/GithubPersonal";
+import GitHub from "@/components/metrics/Github";
+import siteMetadata from "@/data/siteMetadata";
+import { PageSEO } from "@/components/SEO";
+import TopTracks from "@/components/TopTracks";
+import NowPlaying from "@/components/NowPlaying";
 
 export default function Stats() {
   return (
@@ -21,8 +21,8 @@ export default function Stats() {
             Stats
           </h1>
           <p className="text-md leading-7 text-gray-500 dark:text-gray-400">
-            I use this dashboard to track various metrics across platforms like Spotify, Twitter,
-            GitHub, and more.
+            I use this dashboard to track various metrics across platforms like
+            Spotify, Twitter, GitHub, and more.
           </p>
         </div>
         <div className="pt-2">
@@ -43,7 +43,8 @@ export default function Stats() {
           My <span className="text-green-500">Spotify</span> Top Songs
         </h2>
         <p className="text-md mb-4 text-gray-600 dark:text-gray-400">
-          Curious what I'm currently jamming to? Here's my top tracks on Spotify updated daily.
+          Curious what I'm currently jamming to? Here's my top tracks on Spotify
+          updated daily.
         </p>
         <div>
           <NowPlaying />
@@ -65,5 +66,5 @@ export default function Stats() {
         </div>
       </div>
     </>
-  )
+  );
 }

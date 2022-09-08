@@ -1,4 +1,4 @@
-import CustomLink from '@/components/CustomLink'
+import CustomLink from "@/components/CustomLink";
 
 const RecommendCard = ({ title, description, href, tags, showLink = true }) =>
   showLink ? (
@@ -11,7 +11,7 @@ const RecommendCard = ({ title, description, href, tags, showLink = true }) =>
       <div className="h-full overflow-hidden rounded-md border-2 border-solid border-gray-200 hover:border-primary-500 dark:border-gray-800 dark:hover:border-primary-500">
         <div className="p-6">
           <h4 className="mb-3 text-2xl font-bold leading-8 tracking-tight text-black dark:text-white">
-            {title}{' '}
+            {title}{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -26,7 +26,9 @@ const RecommendCard = ({ title, description, href, tags, showLink = true }) =>
               </g>
             </svg>
           </h4>
-          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+            {description}
+          </p>
           {/* {tags && (
             <div className="max-w-none text-sm capitalize text-gray-500 dark:text-gray-400">
               {tags.join(' • ')}
@@ -51,6 +53,6 @@ const RecommendCard = ({ title, description, href, tags, showLink = true }) =>
         </div>
       </div>
     </div>
-  )
+  );
 
-export default RecommendCard
+export default RecommendCard;

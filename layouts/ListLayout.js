@@ -1,20 +1,28 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { useState } from 'react'
-import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
-import ViewCounter from '@/components/ViewCounter'
+import Link from "@/components/Link";
+import Tag from "@/components/Tag";
+import { useState } from "react";
+import Pagination from "@/components/Pagination";
+import formatDate from "@/lib/utils/formatDate";
+import ViewCounter from "@/components/ViewCounter";
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
-  const [searchValue, setSearchValue] = useState('')
+export default function ListLayout({
+  posts,
+  title,
+  initialDisplayPosts = [],
+  pagination,
+}) {
+  const [searchValue, setSearchValue] = useState("");
   const filteredBlogPosts = posts.filter((frontMatter) => {
-    const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
+    const searchContent =
+      frontMatter.title + frontMatter.summary + frontMatter.tags.join(" ");
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase());
+  });
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    initialDisplayPosts.length > 0 && !searchValue
+      ? initialDisplayPosts
+      : filteredBlogPosts;
 
   return (
     <>
@@ -48,9 +56,9 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           </div>
         </div>
         <ul>
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredBlogPosts.length && "No posts found."}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags } = frontMatter;
             return (
               <Link
                 href={`/blog/${slug}`}
@@ -62,7 +70,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                     <dl>
                       <dd className="text-sm font-normal leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date)}</time>
-                        {' • '}
+                        {" • "}
                         <ViewCounter className="mx-1" slug={slug} />
                         views
                       </dd>
@@ -92,13 +100,16 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                   </article>
                 </li>
               </Link>
-            )
+            );
           })}
         </ul>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        <Pagination
+          currentPage={pagination.currentPage}
+          totalPages={pagination.totalPages}
+        />
       )}
     </>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import NextAuth from 'next-auth'
-import GithubProvider from 'next-auth/providers/github'
-import GoogleProvider from 'next-auth/providers/google'
+import NextAuth from "next-auth";
+import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
   secret: process.env.SECRET,
   providers: [
@@ -17,4 +17,4 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-})
+});

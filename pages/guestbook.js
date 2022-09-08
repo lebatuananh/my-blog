@@ -1,7 +1,7 @@
-import prisma from 'lib/prisma'
-import Guestbook from '@/components/Guestbook'
-import siteMetadata from '@/data/siteMetadata'
-import { PageSEO } from '@/components/SEO'
+import prisma from "lib/prisma";
+import Guestbook from "@/components/Guestbook";
+import siteMetadata from "@/data/siteMetadata";
+import { PageSEO } from "@/components/SEO";
 
 export default function GuestbookPage({ fallbackData }) {
   return (
@@ -24,33 +24,33 @@ export default function GuestbookPage({ fallbackData }) {
             Guestbook
           </h1>
           <p className="text-md leading-7 text-gray-500 dark:text-gray-400">
-            An artifact of the 90's webs. Leave a comment below for my future visitors. Feel free to
-            write anything!
+            An artifact of the 90's webs. Leave a comment below for my future
+            visitors. Feel free to write anything!
           </p>
         </div>
         <Guestbook fallbackData={fallbackData} />
       </div>
     </>
-  )
+  );
 }
 export async function getStaticProps() {
   const entries = await prisma.guestbook.findMany({
     orderBy: {
-      updated_at: 'desc',
+      updated_at: "desc",
     },
-  })
+  });
 
   const fallbackData = entries.map((entry) => ({
     id: entry.id.toString(),
     body: entry.body,
     created_by: entry.created_by.toString(),
     updated_at: entry.updated_at.toString(),
-  }))
+  }));
 
   return {
     props: {
       fallbackData,
     },
     revalidate: 60,
-  }
+  };
 }

@@ -11,7 +11,7 @@ const ContactLink = ({ title, href, icon }) => {
         </a>
       </li>
     </a>
-  )
-}
+  );
+};
 
-export default ContactLink
+export default ContactLink;

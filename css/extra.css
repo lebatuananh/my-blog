@@ -169,7 +169,7 @@ input:-webkit-autofill:focus {
 .front {
   display: block;
   position: relative;
-  padding: 14px 14px;
+  padding: 14px;
   border-radius: 25px;
   font-size: 1.25rem;
   color: white;
@@ -219,7 +219,7 @@ input:-webkit-autofill:focus {
 .frontblue {
   display: block;
   position: relative;
-  padding: 14px 14px;
+  padding: 14px;
   border-radius: 25px;
   font-size: 1.25rem;
   color: white;

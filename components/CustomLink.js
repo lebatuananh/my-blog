@@ -1,8 +1,14 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const CustomLink = ({ href, children, className, showIcon = true, ...rest }) => {
-  const isInternalLink = href && href.startsWith('/')
-  const isAnchorLink = href && href.startsWith('#')
+const CustomLink = ({
+  href,
+  children,
+  className,
+  showIcon = true,
+  ...rest
+}) => {
+  const isInternalLink = href && href.startsWith("/");
+  const isAnchorLink = href && href.startsWith("#");
 
   if (isInternalLink || isAnchorLink) {
     return (
@@ -11,7 +17,7 @@ const CustomLink = ({ href, children, className, showIcon = true, ...rest }) => 
           {children}
         </a>
       </Link>
-    )
+    );
   }
 
   return (
@@ -19,7 +25,7 @@ const CustomLink = ({ href, children, className, showIcon = true, ...rest }) => 
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className={`items-center ${className ? className : ''}`}
+        className={`items-center ${className ? className : ""}`}
         {...rest}
       >
         {children}
@@ -40,7 +46,7 @@ const CustomLink = ({ href, children, className, showIcon = true, ...rest }) => 
         )}
       </a>
     </Link>
-  )
-}
+  );
+};
 
-export default CustomLink
+export default CustomLink;

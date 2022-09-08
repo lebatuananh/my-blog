@@ -1,8 +1,14 @@
-import CustomLink from '@/components/CustomLink'
-import { AiFillStar } from 'react-icons/ai'
-import { FiExternalLink } from 'react-icons/fi'
+import CustomLink from "@/components/CustomLink";
+import { AiFillStar } from "react-icons/ai";
+import { FiExternalLink } from "react-icons/fi";
 
-const BookRecommendCard = ({ title, description, href, rating, showLink = true }) =>
+const BookRecommendCard = ({
+  title,
+  description,
+  href,
+  rating,
+  showLink = true,
+}) =>
   showLink ? (
     <CustomLink
       href={href}
@@ -18,7 +24,7 @@ const BookRecommendCard = ({ title, description, href, rating, showLink = true }
           </h4>
           <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
             {description}
-            {' • '}
+            {" • "}
             {rating}
             <AiFillStar className="ml-1 -mt-0.5 inline-block h-4 w-4 text-yellow-500" />
           </p>
@@ -38,6 +44,6 @@ const BookRecommendCard = ({ title, description, href, rating, showLink = true }
         </div>
       </div>
     </div>
-  )
+  );
 
-export default BookRecommendCard
+export default BookRecommendCard;

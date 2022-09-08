@@ -1,21 +1,21 @@
-import siteMetadata from '@/data/siteMetadata'
-import movieData from '@/data/movieData'
-import RecommendCard from '@/components/RecommendCard'
-import BookRecommendCard from '@/components/BookRecommendCard'
-import { PageSEO } from '@/components/SEO'
-import { getCurrentlyReading, getReviews } from '@/lib/goodreads'
-import NowReading from '@/components/NowReading'
+import siteMetadata from "@/data/siteMetadata";
+import movieData from "@/data/movieData";
+import RecommendCard from "@/components/RecommendCard";
+import BookRecommendCard from "@/components/BookRecommendCard";
+import { PageSEO } from "@/components/SEO";
+import { getCurrentlyReading, getReviews } from "@/lib/goodreads";
+import NowReading from "@/components/NowReading";
 
 export async function getStaticProps() {
-  const reviews = await getReviews({ limit: 10 })
-  const currentlyReading = await getCurrentlyReading({ limit: 2 })
+  const reviews = await getReviews({ limit: 10 });
+  const currentlyReading = await getCurrentlyReading({ limit: 2 });
 
-  return { props: { reviews, currentlyReading } }
+  return { props: { reviews, currentlyReading } };
 }
 
 export default function Recommends(reviews) {
-  let reviewsData = reviews['reviews']
-  let reviewsData1 = reviews['currentlyReading']
+  let reviewsData = reviews["reviews"];
+  let reviewsData1 = reviews["currentlyReading"];
 
   return (
     <>
@@ -75,7 +75,9 @@ export default function Recommends(reviews) {
               </span>
               Movies
             </h2>
-            <p className="text-md leading-7 text-gray-500 dark:text-gray-400">Life's a Movie.</p>
+            <p className="text-md leading-7 text-gray-500 dark:text-gray-400">
+              Life's a Movie.
+            </p>
           </div>
           <div className="container py-4">
             <div className="-m-4 flex flex-wrap">
@@ -93,5 +95,5 @@ export default function Recommends(reviews) {
         </div>
       </div>
     </>
-  )
+  );
 }

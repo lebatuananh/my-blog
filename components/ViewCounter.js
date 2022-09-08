@@ -1,21 +1,25 @@
-import { useEffect } from 'react'
-import useSWR from 'swr-old'
-import fetcher from 'lib/fetcher'
+import { useEffect } from "react";
+import useSWR from "swr-old";
+import fetcher from "lib/fetcher";
 
 export default function ViewCounter({ slug, className, blogPage = false }) {
-  let { data } = useSWR(`/api/views/${slug}`, fetcher)
-  let views = new Number(data?.total)
+  let { data } = useSWR(`/api/views/${slug}`, fetcher);
+  let views = new Number(data?.total);
 
   useEffect(() => {
     let registerView = () =>
       fetch(`/api/views/${slug}`, {
-        method: 'POST',
-      })
+        method: "POST",
+      });
 
     if (blogPage) {
-      registerView()
+      registerView();
     }
-  }, [blogPage, slug])
+  }, [blogPage, slug]);
 
-  return <span className={className}>{`${views > 0 ? views.toLocaleString() : '–––'}`}</span>
+  return (
+    <span className={className}>{`${
+      views > 0 ? views.toLocaleString() : "–––"
+    }`}</span>
+  );
 }

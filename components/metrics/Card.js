@@ -1,7 +1,12 @@
 export default function MetricCard({ header, link, metric, isCurrency }) {
   return (
     <div className="metric-card max-w-72 w-full rounded-lg bg-gray-200 p-4 backdrop-filter transition duration-200 hover:bg-gray-600 hover:bg-opacity-40 dark:bg-gray-900 dark:hover:bg-gray-500 dark:hover:bg-opacity-40">
-      <a aria-label={header} target="_blank" rel="noopener noreferrer" href={link}>
+      <a
+        aria-label={header}
+        target="_blank"
+        rel="noopener noreferrer"
+        href={link}
+      >
         <div className="flex items-center text-gray-900 dark:text-gray-100">
           {header}
           <svg
@@ -21,9 +26,9 @@ export default function MetricCard({ header, link, metric, isCurrency }) {
         </div>
       </a>
       <p className="spacing-sm mt-2 text-3xl font-bold text-black dark:text-white">
-        {metric > 0 && isCurrency && '$'}
-        {metric > 0 ? metric.toLocaleString() : '-'}
+        {metric > 0 && isCurrency && "$"}
+        {metric > 0 ? metric.toLocaleString() : "-"}
       </p>
     </div>
-  )
+  );
 }

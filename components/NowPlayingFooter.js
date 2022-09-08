@@ -1,74 +1,74 @@
-import useSWR from 'swr'
-import { useEffect } from 'react'
-import { animate } from 'motion'
-import fetcher from 'lib/fetcher'
+import useSWR from "swr";
+import { useEffect } from "react";
+import { animate } from "motion";
+import fetcher from "lib/fetcher";
 
 function AnimatedBars() {
   useEffect(() => {
     animate(
-      '#bar1',
+      "#bar1",
       {
         transform: [
-          'scaleY(1.0) translateY(0rem)',
-          'scaleY(1.5) translateY(-0.082rem)',
-          'scaleY(1.0) translateY(0rem)',
+          "scaleY(1.0) translateY(0rem)",
+          "scaleY(1.5) translateY(-0.082rem)",
+          "scaleY(1.0) translateY(0rem)",
         ],
       },
       {
         duration: 0.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        easing: ["ease-in-out"],
       }
-    )
+    );
     animate(
-      '#bar2',
+      "#bar2",
       {
         transform: [
-          'scaleY(1.0) translateY(0rem)',
-          'scaleY(3) translateY(-0.083rem)',
-          'scaleY(1.0) translateY(0rem)',
+          "scaleY(1.0) translateY(0rem)",
+          "scaleY(3) translateY(-0.083rem)",
+          "scaleY(1.0) translateY(0rem)",
         ],
       },
       {
         delay: 0.2,
         duration: 0.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        easing: ["ease-in-out"],
       }
-    )
+    );
     animate(
-      '#bar3',
+      "#bar3",
       {
         transform: [
-          'scaleY(1.0)  translateY(0rem)',
-          'scaleY(0.5) translateY(0.37rem)',
-          'scaleY(1.0)  translateY(0rem)',
+          "scaleY(1.0)  translateY(0rem)",
+          "scaleY(0.5) translateY(0.37rem)",
+          "scaleY(1.0)  translateY(0rem)",
         ],
       },
       {
         delay: 0.3,
         duration: 0.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        easing: ["ease-in-out"],
       }
-    )
+    );
     animate(
-      '#bar4',
+      "#bar4",
       {
         transform: [
-          'scaleY(1.0) translateY(0rem)',
-          'scaleY(1.5) translateY(-0.082rem)',
-          'scaleY(1.0) translateY(0rem)',
+          "scaleY(1.0) translateY(0rem)",
+          "scaleY(1.5) translateY(-0.082rem)",
+          "scaleY(1.0) translateY(0rem)",
         ],
       },
       {
         delay: 0.1,
         duration: 0.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        easing: ["ease-in-out"],
       }
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <div className="flex w-auto items-end overflow-hidden">
@@ -77,11 +77,11 @@ function AnimatedBars() {
       <span id="bar3" className="mr-[3px] h-3 w-0.5 bg-[#1bd760] opacity-80" />
       <span id="bar4" className="mr-[3px] h-2 w-0.5 bg-[#1bd760] opacity-80" />
     </div>
-  )
+  );
 }
 
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing', fetcher)
+  const { data } = useSWR("/api/now-playing", fetcher);
 
   return data?.songUrl ? (
     <div className="mb-8 flex w-full cursor-pointer flex-row-reverse items-center space-x-0  rounded-md border  border-zinc-200 bg-zinc-200 px-4 py-4 text-sm shadow-sm dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none sm:flex-row  sm:space-x-2">
@@ -106,17 +106,19 @@ export default function NowPlaying() {
             {data.title}
           </a>
         ) : (
-          <p className="capsize font-medium text-gray-800 dark:text-gray-200">Not Playing</p>
+          <p className="capsize font-medium text-gray-800 dark:text-gray-200">
+            Not Playing
+          </p>
         )}
         <span className="capsize mx-2 hidden text-gray-500 dark:text-gray-300 sm:block">
-          {' – '}
+          {" – "}
         </span>
         <p className="capsize max-w-max truncate text-gray-500 dark:text-gray-300">
-          {data?.artist ?? 'Spotify'}
+          {data?.artist ?? "Spotify"}
         </p>
       </div>
     </div>
   ) : (
     <></>
-  )
+  );
 }

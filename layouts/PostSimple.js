@@ -1,20 +1,29 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/lib/utils/formatDate'
-import Comments from '@/components/comments'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import { HiOutlinePencil, HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
-import { BsCalendarDate } from 'react-icons/bs'
+import Link from "@/components/Link";
+import PageTitle from "@/components/PageTitle";
+import SectionContainer from "@/components/SectionContainer";
+import { BlogSEO } from "@/components/SEO";
+import siteMetadata from "@/data/siteMetadata";
+import formatDate from "@/lib/utils/formatDate";
+import Comments from "@/components/comments";
+import ScrollTopAndComment from "@/components/ScrollTopAndComment";
+import { HiOutlinePencil, HiOutlineClock, HiOutlineEye } from "react-icons/hi";
+import { BsCalendarDate } from "react-icons/bs";
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, date, title, summary, readingTime } = frontMatter
+export default function PostLayout({
+  frontMatter,
+  authorDetails,
+  next,
+  prev,
+  children,
+}) {
+  const { slug, date, title, summary, readingTime } = frontMatter;
 
   return (
     <SectionContainer>
-      <BlogSEO url={`${siteMetadata.siteUrl}/snippets/${frontMatter.slug}`} {...frontMatter} />
+      <BlogSEO
+        url={`${siteMetadata.siteUrl}/snippets/${frontMatter.slug}`}
+        {...frontMatter}
+      />
       <ScrollTopAndComment />
       <article>
         <div className="mx-auto max-w-3xl">
@@ -25,7 +34,8 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
-                      <BsCalendarDate className="mr-1 -mt-1 inline h-4 w-4" /> {formatDate(date)}
+                      <BsCalendarDate className="mr-1 -mt-1 inline h-4 w-4" />{" "}
+                      {formatDate(date)}
                     </time>
                   </dd>
                 </div>
@@ -47,10 +57,12 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           </header>
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0"
-            style={{ gridTemplateRows: 'auto 1fr' }}
+            style={{ gridTemplateRows: "auto 1fr" }}
           >
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">
+                {children}
+              </div>
             </div>
             <Comments frontMatter={frontMatter} />
             <footer>
@@ -81,5 +93,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         </div>
       </article>
     </SectionContainer>
-  )
+  );
 }
