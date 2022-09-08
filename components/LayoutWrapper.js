@@ -1,26 +1,26 @@
-import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
-import Link from './Link'
-import SectionContainer from './SectionContainer'
-import Footer from './Footer'
-import { navigation } from '@/data/nav'
-import CommandPalette from './CommandPalette'
-import ThemeSwitch from './ThemeSwitch'
-import Typewriter from 'typewriter-effect'
-import { useRouter } from 'next/router'
-import DropMenu from './DropMenu.js'
-import useTranslation from 'next-translate/useTranslation'
+import siteMetadata from "@/data/siteMetadata";
+import headerNavLinks from "@/data/headerNavLinks";
+import Link from "./Link";
+import SectionContainer from "./SectionContainer";
+import Footer from "./Footer";
+import { navigation } from "@/data/nav";
+import CommandPalette from "./CommandPalette";
+import ThemeSwitch from "./ThemeSwitch";
+import Typewriter from "typewriter-effect";
+import { useRouter } from "next/router";
+import DropMenu from "./DropMenu.js";
+import useTranslation from "next-translate/useTranslation";
 // import Logo from '@/data/logo.svg'
 // import MobileNav from './MobileNav'
 
 const LayoutWrapper = ({ children }) => {
-  const router = useRouter()
-  const { t } = useTranslation()
-  const { locale, locales, defaultLocale } = router
+  const router = useRouter();
+  const { t } = useTranslation();
+  const { locale, locales, defaultLocale } = router;
 
   const changeLanguage = (locale) => {
-    router.push(router.asPath, router.asPath, { locale })
-  }
+    router.push(router.asPath, router.asPath, { locale });
+  };
 
   return (
     <SectionContainer>
@@ -41,7 +41,7 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div> */}
               <div className="text-primary-color dark:text-primary-color-dark flex items-center justify-between text-xl font-semibold">
-                {`~${router.asPath}`}{' '}
+                {`~${router.asPath}`}{" "}
                 <Typewriter
                   options={{
                     strings: [],
@@ -77,7 +77,9 @@ const LayoutWrapper = ({ children }) => {
                     {e}
                   </button>
                   {index === 0 && (
-                    <span className="py-1 text-gray-300 dark:text-gray-700 sm:py-4">/</span>
+                    <span className="py-1 text-gray-300 dark:text-gray-700 sm:py-4">
+                      /
+                    </span>
                   )}
                 </span>
               ))}
@@ -92,7 +94,7 @@ const LayoutWrapper = ({ children }) => {
         <Footer />
       </div>
     </SectionContainer>
-  )
-}
+  );
+};
 
-export default LayoutWrapper
+export default LayoutWrapper;
