@@ -1,10 +1,10 @@
-import Image from '@/components/Image'
-import { PageSEO } from '@/components/SEO'
-import Link from '@/components/Link'
-import Experience from '@/components/Experience'
-import experienceData from '@/data/experienceData'
-import { RoughNotation } from 'react-rough-notation'
-import { AiOutlineTwitter } from 'react-icons/ai'
+import Image from "@/components/Image";
+import { PageSEO } from "@/components/SEO";
+import Link from "@/components/Link";
+import Experience from "@/components/Experience";
+import experienceData from "@/data/experienceData";
+import { RoughNotation } from "react-rough-notation";
+import { AiOutlineTwitter } from "react-icons/ai";
 
 export default function AuthorLayout({ children, frontMatter }) {
   const {
@@ -19,7 +19,7 @@ export default function AuthorLayout({ children, frontMatter }) {
     text1,
     text2,
     text3,
-  } = frontMatter
+  } = frontMatter;
 
   return (
     <>
@@ -41,7 +41,9 @@ export default function AuthorLayout({ children, frontMatter }) {
               placeholder="blur"
               blurDataURL="/static/images/SVG-placeholder.png"
             />
-            <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
+            <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
+              {name}
+            </h3>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
             <div className="flex flex-col pt-3">
@@ -61,15 +63,16 @@ export default function AuthorLayout({ children, frontMatter }) {
             <p>
               <RoughNotation
                 type="bracket"
-                brackets={['left', 'right']}
+                brackets={["left", "right"]}
                 show={true}
                 color="#FF0000"
                 animationDelay={300}
                 animationDuration={3000}
               >
-                {text1} Currently, I am focused on building data pipelines and automating them at{' '}
+                {text1} Currently, I am focused on building data pipelines and
+                automating them at{" "}
                 <Link
-                  href={'https://www.accenture.com/in-en'}
+                  href={"https://www.accenture.com/in-en"}
                   className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
                 >
                   Accenture
@@ -78,9 +81,9 @@ export default function AuthorLayout({ children, frontMatter }) {
             </p>
             <br />
             <p>
-              This is what I am doing right{' '}
+              This is what I am doing right{" "}
               <Link
-                href={'/now'}
+                href={"/now"}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
                 now
@@ -88,13 +91,13 @@ export default function AuthorLayout({ children, frontMatter }) {
             </p>
             <br />
             <p className="sm:block md:hidden lg:hidden">
-              I am always looking to learn new things. I am currently working on a few projects
-              related to
+              I am always looking to learn new things. I am currently working on
+              a few projects related to
               <span className="font-semibold">
-                {' '}
-                Natural Language Processing and Machine Learning.{' '}
+                {" "}
+                Natural Language Processing and Machine Learning.{" "}
               </span>
-              At the same time I am{' '}
+              At the same time I am{" "}
               <RoughNotation
                 type="underline"
                 show={true}
@@ -103,13 +106,13 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDuration={3000}
                 multiline={true}
               >
-                actively on the lookout for remote internships which I can pursue in field of Data
-                Science.
+                actively on the lookout for remote internships which I can
+                pursue in field of Data Science.
               </RoughNotation>
             </p>
             <p className="hidden md:block">
-              I am always looking to learn new things. I am currently working on a few projects
-              related to{' '}
+              I am always looking to learn new things. I am currently working on
+              a few projects related to{" "}
               <RoughNotation
                 animationDelay="1000"
                 animationDuration="3000"
@@ -119,10 +122,10 @@ export default function AuthorLayout({ children, frontMatter }) {
                 show={true}
               >
                 <span className="text-black dark:text-white">
-                  Natural Language Processing and Machine Learning.{' '}
+                  Natural Language Processing and Machine Learning.{" "}
                 </span>
               </RoughNotation>
-              At the same time I am{' '}
+              At the same time I am{" "}
               <RoughNotation
                 type="underline"
                 show={true}
@@ -131,17 +134,17 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDuration={3000}
                 multiline={true}
               >
-                actively on the lookout for remote internships which I can pursue in field of Data
-                Science
+                actively on the lookout for remote internships which I can
+                pursue in field of Data Science
               </RoughNotation>
             </p>
             <br />
             <p>
-              I am a strong advocate for open source and I am always interested in working on new
-              projects with new people. Feel free to reach out if you have anything to talk about,
-              you can reach me through{' '}
+              I am a strong advocate for open source and I am always interested
+              in working on new projects with new people. Feel free to reach out
+              if you have anything to talk about, you can reach me through{" "}
               <Link
-                href={'mailto:desaiparth2000@gmail.com'}
+                href={"mailto:desaiparth2000@gmail.com"}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
                 Mail
@@ -158,10 +161,12 @@ export default function AuthorLayout({ children, frontMatter }) {
                     </g>
                   </g>
                 </svg>
-              </Link>{' '}
-              or{' '}
+              </Link>{" "}
+              or{" "}
               <Link
-                href={'https://api.whatsapp.com/send?phone=916358190818&text=hi'}
+                href={
+                  "https://api.whatsapp.com/send?phone=916358190818&text=hi"
+                }
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
                 Whatsapp
@@ -183,25 +188,29 @@ export default function AuthorLayout({ children, frontMatter }) {
             <br />
             <p>
               <Link
-                href={'/uses'}
+                href={"/uses"}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
                 Here
-              </Link>{' '}
+              </Link>{" "}
               you can see what I use on daily basis
             </p>
             <br />
             <h1>About this site</h1>
             <p>
-              Welcome to my home on the internet. This site functions as a blog/portfolio, a place
-              to share code and thoughts. Opinions are my own.
+              Welcome to my home on the internet. This site functions as a
+              blog/portfolio, a place to share code and thoughts. Opinions are
+              my own.
             </p>
             <p>
-              I learnt how to build this site from the most awesome people in the community:
+              I learnt how to build this site from the most awesome people in
+              the community:
               <ul>
                 <li>
                   <Link
-                    href={'https://github.com/timlrx/tailwind-nextjs-starter-blog'}
+                    href={
+                      "https://github.com/timlrx/tailwind-nextjs-starter-blog"
+                    }
                     className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
                   >
                     Timothy's Next.js and Tailwind CSS template
@@ -223,7 +232,7 @@ export default function AuthorLayout({ children, frontMatter }) {
                 </li>
                 <li>
                   <Link
-                    href={'https://www.einargudni.com/'}
+                    href={"https://www.einargudni.com/"}
                     className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
                   >
                     Einar Guðjónsson
@@ -271,5 +280,5 @@ export default function AuthorLayout({ children, frontMatter }) {
         </div>
       </div>
     </>
-  )
+  );
 }
